@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { PageSettingsModel } from '@syncfusion/ej2-angular-grids/src';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +11,8 @@ import { PageSettingsModel } from '@syncfusion/ej2-angular-grids/src';
 })
 export class AppComponent {
   title = 'angular-ejs';
+
+  // Grid 
   pageSettings: PageSettingsModel = { pageSize: 5 };
   data = [
     {
@@ -66,4 +71,8 @@ export class AppComponent {
       price: 60000
     }
   ]
+
+  // dropdown list
+  public data2: string[] = ['Snooker', 'Tennis', 'Cricket', 'Football', 'Rugby', 'Cricket', 'Football', 'Rugby'];
+
 }

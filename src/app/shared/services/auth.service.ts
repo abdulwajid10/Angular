@@ -14,19 +14,31 @@ export class AuthService {
     private router: Router
   ) { }
 
-
+  // signup post request
   signUp(user: signUp) {
     console.warn("inside signup service", user);
-    this.http.post(`${this.baseUrlAuth}/signup`, user);
+    return this.http.post(`${this.baseUrlAuth}/signup`, user);
   }
 
+  // login post request
   login(user: login) {
     console.warn("inside login service", user);
-    this.http.post(`${this.baseUrlAuth}/login`, user).subscribe((res: any) => {
-      // storing token in local storage
-      localStorage.setItem('token', res.token);
-      // navigating to signup route
-      this.router.navigate(['/signup']);
-    })
+    return this.http.post(`${this.baseUrlAuth}/login`, user);
+  }
+
+  // checking if user is logged in or not
+  isLoggedIn() {
+    return localStorage.getItem('token') != null;
+  }
+
+  // get token
+  getToken() {
+    return localStorage.getItem('token') || '';
+  }
+
+  // logout user
+  logut() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
