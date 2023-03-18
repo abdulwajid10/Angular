@@ -14,6 +14,8 @@ export class HomeComponent {
   ) { }
 
   logout() {
+    let role = this.auth.haveAccess();
+    console.warn(role);
     this.auth.logut();
   }
 }

@@ -16,10 +16,11 @@ import { TokenInterceptorService } from './shared/services/token-interceptor.ser
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
   ],
   imports: [
     BrowserModule, HttpClientModule, GridModule, DropDownListModule, CheckBoxModule, AutoCompleteModule, FormsModule,

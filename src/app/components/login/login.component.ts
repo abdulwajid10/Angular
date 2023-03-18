@@ -13,12 +13,14 @@ export class LoginComponent {
     private auth: AuthService,
     private router: Router
   ) { }
-  
+
   login(data: login) {
     this.auth.login(data).subscribe((res: any) => {
       if (res) {
         console.log("inside login component response true", res)
         localStorage.setItem('token', res.token);
+        const role = this.auth.haveAccess();
+        console.warn(role);
         this.router.navigate(['/home']);
 
       } else {
